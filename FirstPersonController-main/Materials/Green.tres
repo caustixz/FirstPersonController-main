@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b4s0xnt1f6lia"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g66bf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_me3my"]
+
+[resource]
+next_pass = SubResource("CanvasItemMaterial_me3my")
+albedo_texture = SubResource("CanvasTexture_g66bf")
+metallic_specular = 0.0

@@ -1,0 +1,721 @@
+[gd_scene load_steps=66 format=3 uid="uid://db2h3t17k37pe"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1d73w"]
+[ext_resource type="Texture2D" uid="uid://cuhjbtjwx061g" path="res://textures/8887540-seamless-detailed-texture-of-old-half-dry-grass-high-resolution-colour-horizontal-image.jpg" id="3_skhsk"]
+[ext_resource type="Texture2D" uid="uid://b45sva6slrage" path="res://textures/rust3.png" id="4_f6d53"]
+[ext_resource type="Texture2D" uid="uid://cyc81viep5f1v" path="res://textures/plank1.png" id="4_pyfmm"]
+[ext_resource type="Texture2D" uid="uid://bm2rswx6hky2i" path="res://textures/payphone1.png" id="5_f4vep"]
+[ext_resource type="Script" path="res://Scenes/RigidBody3D.gd" id="5_yuvdt"]
+[ext_resource type="Script" path="res://Scenes/Footstep_manager.gd" id="6_rel7d"]
+[ext_resource type="Script" path="res://Scenes/CSGBox3D7.gd" id="6_tntyt"]
+[ext_resource type="AudioStream" uid="uid://c888bw6xgbw68" path="res://sounds/voice/jimmy_call.mp3" id="7_ijb7f"]
+[ext_resource type="AudioStream" uid="uid://dtmv7y06vny2y" path="res://footstep3.mp3" id="7_ooqlq"]
+[ext_resource type="AudioStream" uid="uid://bub5nrvjfgqx3" path="res://footstep4.mp3" id="9_oa8hi"]
+[ext_resource type="AudioStream" uid="uid://4mrdlch33qm5" path="res://footstep2.mp3" id="9_q14i3"]
+[ext_resource type="Script" path="res://Scenes/SpotLight3D.gd" id="10_3qvnd"]
+[ext_resource type="Script" path="res://Scenes/Node3D.gd" id="12_ks7id"]
+[ext_resource type="AudioStream" uid="uid://cgh2dyd4043h1" path="res://sounds/flash/flashnew/flashlight_on_sound.mp3" id="13_q63gf"]
+[ext_resource type="AudioStream" uid="uid://gq75mdufvsx0" path="res://sounds/flash/flashnew/flashlight_off_sound.mp3" id="14_3okwd"]
+[ext_resource type="AudioStream" uid="uid://cgw8hxwitlxdr" path="res://sounds/flash/flashlight_on_sound.wav" id="17_m61q7"]
+[ext_resource type="Texture2D" uid="uid://bwy32kdhxoher" path="res://textures/al_rug1.jpg" id="18_7pl1s"]
+[ext_resource type="Texture2D" uid="uid://byii8nd2s8pa2" path="res://textures/al_ceil1.png" id="20_awm57"]
+[ext_resource type="Texture2D" uid="uid://b03ilbon7hm4s" path="res://textures/FEO6BARWH-14.jpg" id="21_0un66"]
+[ext_resource type="Texture2D" uid="uid://5ujpdqxmo3l1" path="res://textures/al_fix1.png" id="21_b4djc"]
+[ext_resource type="Texture2D" uid="uid://bvuaxdsomxoe8" path="res://textures/al_wal2.png" id="22_1ys8h"]
+[ext_resource type="Texture2D" uid="uid://cerheem0fwe6b" path="res://textures/al_gls1.jpg" id="22_i3y27"]
+[ext_resource type="Texture2D" uid="uid://bypevqvgegut1" path="res://textures/al_gls2.jpg" id="23_68pck"]
+[ext_resource type="AudioStream" uid="uid://cu7bk4gxbl12q" path="res://sounds/ambient/drone1.mp3" id="23_80tbb"]
+[ext_resource type="AudioStream" uid="uid://c0gy2n14nxuar" path="res://sounds/ambient/office_amb.mp3" id="24_1onp2"]
+[ext_resource type="AudioStream" uid="uid://ccawsn8k6fyx" path="res://sounds/ambient/cricketstrain.mp3" id="24_a451h"]
+[ext_resource type="Texture2D" uid="uid://y0mx3roaf6h7" path="res://textures/pre/mulch1.jpg" id="24_cm6ml"]
+[ext_resource type="Texture2D" uid="uid://cod2f1gfour78" path="res://textures/pre/concrete2.jpg" id="24_ctttb"]
+[ext_resource type="Texture2D" uid="uid://bolkd8ppvqvbh" path="res://textures/rm1_ps6.png" id="24_s3ydj"]
+[ext_resource type="Texture2D" uid="uid://6wukuxvlmdef" path="res://textures/pre/popcorn1.jpg" id="24_wrsj6"]
+[ext_resource type="AudioStream" uid="uid://dj7200wjrf5yn" path="res://sounds/ambient/wind1_long.mp3" id="25_ceulh"]
+[ext_resource type="Texture2D" uid="uid://ivxmqamu22g1" path="res://textures/wall1.png" id="25_n8ya1"]
+[ext_resource type="Texture2D" uid="uid://btm4e2tkm1xax" path="res://textures/M1_P1.jpg" id="25_o6jkx"]
+[ext_resource type="Texture2D" uid="uid://b4fwswh7myk0f" path="res://textures/pre/upclose_wall1.jpg" id="30_fxkyn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7482r"]
+albedo_texture = ExtResource("4_f6d53")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0bom"]
+albedo_texture = ExtResource("4_pyfmm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ii2ym"]
+albedo_texture = ExtResource("3_skhsk")
+uv1_scale = Vector3(43.745, 50, -0.38)
+uv1_offset = Vector3(0.08, 0, 0)
+uv2_scale = Vector3(15.57, 15.57, 15.57)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shdnq"]
+albedo_texture = ExtResource("5_f4vep")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.150241, 0.0634433, 0.0640694, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.258177, 0.0488241, 0.0813842, 1)
+
+[sub_resource type="Sky" id="Sky_f6bkd"]
+sky_material = SubResource("ProceduralSkyMaterial_5lq0h")
+
+[sub_resource type="Environment" id="Environment_g2h84"]
+background_mode = 2
+background_energy_multiplier = 0.85
+sky = SubResource("Sky_f6bkd")
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 3
+tonemap_exposure = 1.67
+tonemap_white = 1.68
+sdfgi_bounce_feedback = 0.27
+sdfgi_cascades = 8
+sdfgi_min_cell_size = 0.0150208
+sdfgi_cascade0_distance = 0.961332
+sdfgi_max_distance = 246.101
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.47
+glow_blend_mode = 0
+fog_light_energy = 0.17
+volumetric_fog_density = 0.5237
+volumetric_fog_detail_spread = 4.75683
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yiyfu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xscff"]
+albedo_texture = ExtResource("4_pyfmm")
+texture_filter = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_efdq3"]
+material = SubResource("StandardMaterial3D_xscff")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krmnx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xc2g5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utvm2"]
+albedo_texture = ExtResource("18_7pl1s")
+uv1_scale = Vector3(15.6, 18.6, 1)
+uv1_offset = Vector3(0.685, 0.565, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1548"]
+albedo_texture = ExtResource("20_awm57")
+uv1_scale = Vector3(4.435, 3.3, 1.59)
+uv1_offset = Vector3(0.65, 0, 0)
+texture_filter = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7mnj"]
+albedo_texture = ExtResource("21_b4djc")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 5.21
+emission_operator = 1
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+uv1_scale = Vector3(0.855, 1.055, 1)
+uv1_offset = Vector3(0, -0.07, 0)
+texture_filter = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkebb"]
+albedo_texture = ExtResource("21_0un66")
+uv1_scale = Vector3(30.545, 46.2, 1)
+uv1_offset = Vector3(0, 4.005, 0)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gst0h"]
+albedo_texture = ExtResource("22_1ys8h")
+uv1_scale = Vector3(7.8, 18.6, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vefil"]
+albedo_texture = ExtResource("24_cm6ml")
+uv1_scale = Vector3(50, 50, 1)
+texture_filter = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l4xl"]
+albedo_texture = ExtResource("24_ctttb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpka8"]
+albedo_texture = ExtResource("24_wrsj6")
+roughness = 0.51
+uv1_scale = Vector3(0.785, 2.465, 1)
+texture_filter = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdnlu"]
+transparency = 1
+blend_mode = 3
+albedo_texture = ExtResource("22_i3y27")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64f42"]
+next_pass = SubResource("StandardMaterial3D_xdnlu")
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+diffuse_mode = 2
+albedo_texture = ExtResource("22_i3y27")
+metallic = 0.08
+metallic_specular = 0.0
+metallic_texture = ExtResource("23_68pck")
+roughness = 0.48
+roughness_texture = ExtResource("23_68pck")
+roughness_texture_channel = 1
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_63ucl"]
+albedo_texture = ExtResource("30_fxkyn")
+uv1_scale = Vector3(8.68, 1, 1)
+uv1_offset = Vector3(1.765, 0, 0)
+texture_filter = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2u5y"]
+albedo_texture = ExtResource("24_s3ydj")
+albedo_texture_force_srgb = true
+texture_filter = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymo8s"]
+albedo_texture = ExtResource("25_o6jkx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq82v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w0dl"]
+albedo_texture = ExtResource("25_n8ya1")
+uv1_scale = Vector3(4, -6.425, 4.72)
+uv1_offset = Vector3(0.215, 2.855, 2.225)
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdul6"]
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1o7l"]
+albedo_texture = ExtResource("25_n8ya1")
+texture_filter = 4
+
+[node name="World" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Map"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.3328, 3.78581, -8.94074)
+material_override = SubResource("StandardMaterial3D_7482r")
+use_collision = true
+size = Vector3(0.278931, 14.2441, 0.366943)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Map"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.1298, 10.9722, -8.95745)
+material_override = SubResource("StandardMaterial3D_g0bom")
+use_collision = true
+size = Vector3(0.378693, 0.103039, 0.750214)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81589, 0, -4.57675)
+material_override = SubResource("StandardMaterial3D_ii2ym")
+use_collision = true
+size = Vector3(200.469, 0.002, 322.886)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Map"]
+transform = Transform3D(-6.66757e-10, 0.999884, -0.0152536, 4.37063e-08, 0.0152536, 0.999884, 1, 0, -4.37114e-08, 11.2794, 0.698738, -37.6276)
+material_override = SubResource("StandardMaterial3D_shdnq")
+use_collision = true
+size = Vector3(0.701721, 0.74005, 1.43916)
+script = ExtResource("6_tntyt")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/CSGBox3D7"]
+transform = Transform3D(1, 1.16573e-15, -3.55271e-15, -8.47033e-22, 1, -9.31323e-10, 0, 9.31323e-10, 1, 0, 0, 0)
+stream = ExtResource("7_ijb7f")
+volume_db = -17.413
+unit_size = 60.0
+max_db = -5.378
+max_distance = 2.0
+doppler_tracking = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
+environment = SubResource("Environment_g2h84")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Map/WorldEnvironment"]
+transform = Transform3D(0.0443169, -0.999005, -0.0050862, 0.0104135, -0.00462899, 0.999935, -0.998963, -0.044367, 0.010198, 13.9701, 10.6002, -8.92368)
+light_color = Color(0.472159, 0.279934, 0.122308, 1)
+light_energy = 9.212
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 4.202
+light_specular = 0.0
+shadow_enabled = true
+shadow_blur = 0.697
+spot_range = 68.066
+spot_attenuation = 0.812259
+spot_angle = 47.13
+spot_angle_attenuation = 0.0947327
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Map/WorldEnvironment"]
+transform = Transform3D(0.98982, -0.141904, -0.0109651, 0.0104135, -0.00462899, 0.999935, -0.141945, -0.98987, -0.00310415, 13.9701, 33.3818, -65.2789)
+light_color = Color(0.472159, 0.279934, 0.122308, 1)
+light_energy = 9.212
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 4.202
+light_specular = 0.0
+shadow_enabled = true
+shadow_blur = 0.697
+spot_range = 68.066
+spot_attenuation = 0.812259
+spot_angle = 47.13
+spot_angle_attenuation = 0.0947327
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Map/WorldEnvironment"]
+transform = Transform3D(0.98982, -0.141904, -0.0109651, 0.0104135, -0.00462899, 0.999935, -0.141945, -0.98987, -0.00310415, 13.9701, 33.3818, -98.7429)
+light_color = Color(0.472159, 0.279934, 0.122308, 1)
+light_energy = 9.212
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 4.202
+light_specular = 0.0
+shadow_enabled = true
+shadow_blur = 0.697
+spot_range = 68.066
+spot_attenuation = 0.812259
+spot_angle = 47.13
+spot_angle_attenuation = 0.0947327
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map/WorldEnvironment"]
+light_energy = 0.0
+light_volumetric_fog_energy = 1.152
+light_angular_distance = 8.25
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9674, 2.76258, 0)
+physics_material_override = SubResource("PhysicsMaterial_yiyfu")
+script = ExtResource("5_yuvdt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0200685, 0)
+gi_mode = 2
+mesh = SubResource("BoxMesh_efdq3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/RigidBody3D"]
+shape = SubResource("BoxShape3D_krmnx")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.999845, 0, -0.0175921, 0, 1, 0, 0.0175921, 0, -0.999845, 14.7046, 10.3566, 20.4319)
+script = ExtResource("1_1d73w")
+
+[node name="Footstep_manager" type="Node3D" parent="Player" node_paths=PackedStringArray("ground_pos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036779, 0)
+script = ExtResource("6_rel7d")
+footstep_sounds = Array[AudioStreamMP3]([ExtResource("9_q14i3"), ExtResource("7_ooqlq"), ExtResource("9_oa8hi")])
+ground_pos = NodePath("../Head/Marker3D")
+
+[node name="Node3D" type="Node3D" parent="Player"]
+script = ExtResource("12_ks7id")
+flashlight_on_sound = ExtResource("13_q63gf")
+flashlight_off_sound = ExtResource("14_3okwd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xc2g5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_wydro")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+fov = 28.4
+near = 0.009
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/Head/Camera3D"]
+transform = Transform3D(0.999914, 0, -0.0130896, 0, 1, 0, 0.0130896, 0, 0.999914, 0.328926, -0.37314, -0.27457)
+light_color = Color(0.912487, 0.915877, 0.782145, 1)
+light_energy = 11.337
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.722
+light_size = 1.0
+light_specular = 0.646
+light_bake_mode = 0
+shadow_bias = 10.0
+shadow_normal_bias = 10.0
+shadow_transmittance_bias = 16.0
+spot_range = 70.0
+spot_attenuation = 0.965931
+spot_angle = 39.68
+spot_angle_attenuation = 7.72733
+script = ExtResource("10_3qvnd")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/Head/Camera3D"]
+
+[node name="Marker3D" type="Marker3D" parent="Player/Head"]
+
+[node name="FlashlightAudio" type="AudioStreamPlayer3D" parent="Player/Head"]
+stream = ExtResource("17_m61q7")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, -0.178707, 13.818)
+size = Vector3(31.0029, 25.8672, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 4.44363, 11.5299)
+use_collision = true
+size = Vector3(31.0029, 21.2909, 0.448364)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 9.1892, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.448364)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 15.0275, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.448364)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 15.3315, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.001)
+material = SubResource("StandardMaterial3D_utvm2")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 9.48584, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.001)
+material = SubResource("StandardMaterial3D_utvm2")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 14.6029, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.001)
+material = SubResource("StandardMaterial3D_s1548")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82164, -8.67428, 0.0669117)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D13"]
+transform = Transform3D(-0.955752, 0.0108823, 0.293972, 1.28587e-08, -0.999316, 0.0369927, 0.294174, 0.0353558, 0.955098, 0, 0, 1.02089)
+light_color = Color(1, 1, 0.72549, 1)
+spot_range = 15.157
+spot_attenuation = 0.287175
+spot_angle = 118.71
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82164, 0.429152, 0.0669117)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D14"]
+transform = Transform3D(0.999165, -8.55643e-08, -0.0408467, -8.92082e-08, -1, -8.73863e-08, -0.0408467, 9.09572e-08, -0.999165, 0, 3.8147e-06, 0.286649)
+light_color = Color(1, 1, 0.72549, 1)
+light_energy = 0.515
+shadow_enabled = true
+spot_range = 15.157
+spot_attenuation = 0.287175
+spot_angle = 62.35
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82164, 7.55558, 0.0669117)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D15"]
+transform = Transform3D(-0.844431, 0.0198157, 0.535298, 2.2464e-08, -0.999316, 0.0369927, 0.535665, 0.0312378, 0.843853, 0, 1.43544, 1.04234)
+light_color = Color(1, 1, 0.72549, 1)
+shadow_enabled = true
+spot_range = 15.157
+spot_attenuation = 0.287175
+spot_angle = 118.71
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54214, 7.55558, 0.0669117)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D16"]
+transform = Transform3D(1, 0, 0, 0, -0.999316, 0.0369926, 0, -0.0369926, -0.999316, 0, 0, -0.289541)
+light_color = Color(1, 1, 0.72549, 1)
+shadow_enabled = true
+spot_range = 15.157
+spot_attenuation = 0.287175
+spot_angle = 118.71
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54214, 1.40364, 0.0669117)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D17"]
+transform = Transform3D(1, 0, 0, 0, -0.999316, 0.0369926, 0, -0.0369926, -0.999316, 0, 0, 0.185834)
+light_color = Color(1, 1, 0.72549, 1)
+shadow_enabled = true
+spot_range = 15.157
+spot_attenuation = 0.287175
+spot_angle = 69.69
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54214, -4.84342, 0.0669136)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D18"]
+transform = Transform3D(1, 0, 0, 0, -0.999316, 0.0369926, 0, -0.0369926, -0.999316, -0.340736, -0.846627, 0.335125)
+light_color = Color(1, 1, 0.72549, 1)
+shadow_enabled = true
+spot_range = 15.157
+spot_attenuation = 0.287175
+spot_angle = 46.71
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7654, -4.84342, 0.0669165)
+use_collision = true
+size = Vector3(2, 4.16614, 0.001)
+material = SubResource("StandardMaterial3D_d7mnj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D12/CSGBox3D19"]
+transform = Transform3D(1, 0, 0, 0, -0.999316, 0.0369926, 0, -0.0369926, -0.999316, 0, 0, 0.420641)
+light_color = Color(1, 1, 0.72549, 1)
+shadow_enabled = true
+spot_range = 12.936
+spot_attenuation = 0.287175
+spot_angle = 55.28
+spot_angle_attenuation = 0.933034
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 4.76998, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.001)
+material = SubResource("StandardMaterial3D_utvm2")
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.13798, -0.990435, 0, 0.990435, -0.13798, 17.7809, 6.79016, 37.1614)
+use_collision = true
+size = Vector3(2.21793, 30.1885, 0.255261)
+material = SubResource("StandardMaterial3D_vkebb")
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0164127, -0.000527173, 0.999865, -0.0132037, 0.999913, 0.000310421, -0.999778, -0.0131968, -0.0164182, 24.6499, 6.47978, 39.3883)
+use_collision = true
+size = Vector3(10.5251, 30.1885, 0.001)
+material = SubResource("StandardMaterial3D_gst0h")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CSGBox3D31"]
+transform = Transform3D(1, 3.1665e-08, 2.79397e-08, -3.72529e-09, 1, 4.10364e-08, 0, -8.87667e-10, 1, -7.50997, 13.2426, 35.0087)
+stream = ExtResource("23_80tbb")
+volume_db = -20.18
+autoplay = true
+max_distance = 369.02
+panning_strength = 2.32
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0164127, -0.000527173, 0.999865, -0.0132037, 0.999913, 0.000310421, -0.999778, -0.0131968, -0.0164182, 24.6143, 6.45113, 50.3846)
+use_collision = true
+size = Vector3(6.18344, 30.1885, 0.001)
+material = SubResource("StandardMaterial3D_gst0h")
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.999804, -0.0131977, -0.0147255, -0.0132037, 0.999913, 0.000310421, 0.0147201, 0.00050483, -0.999892, 36.469, 6.56487, 50.2578)
+use_collision = true
+size = Vector3(23.6751, 30.1885, 0.001)
+material = SubResource("StandardMaterial3D_gst0h")
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0201954, -0.82209, -0.568999, -0.00598829, -0.569204, 0.822174, -0.999778, -0.0131968, -0.0164182, 24.6199, 6.23907, 44.5984)
+use_collision = true
+size = Vector3(20.7216, 30.1885, 0.563)
+material = SubResource("StandardMaterial3D_gst0h")
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0133871, -0.999844, -0.0115311, -0.0162635, -0.0117485, 0.999799, -0.999778, -0.0131968, -0.0164182, 51.3159, 14.1519, 35.6106)
+use_collision = true
+size = Vector3(33.4111, 28.9025, 1.68507)
+material = SubResource("StandardMaterial3D_vefil")
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0129318, -0.999786, 0.0161451, -0.0166278, 0.015929, 0.999735, -0.999778, -0.0131968, -0.0164182, 31.7719, 14.5127, 28.4336)
+use_collision = true
+size = Vector3(3.98034, 11.0237, 0.277355)
+material = SubResource("StandardMaterial3D_5l4xl")
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0129318, -0.999786, 0.0161451, 0.242243, 0.0187978, 0.970033, -0.970129, -0.00863329, 0.242434, 22.354, 14.5428, 29.3254)
+use_collision = true
+size = Vector3(5.83108, 2.75116, 0.001)
+material = SubResource("StandardMaterial3D_gst0h")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.40571, 0.384514, 13.818)
+use_collision = true
+size = Vector3(31.0029, 25.8672, 0.001)
+material = SubResource("StandardMaterial3D_utvm2")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(0.882201, -4.11651e-08, -0.470873, 0.432179, 0.396988, 0.809705, 0.186931, -0.917824, 0.350223, -57.4193, -94.0436, -48.9502)
+use_collision = true
+size = Vector3(0, 0, 0.001)
+material = SubResource("StandardMaterial3D_utvm2")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.715, 10.3789, 13.7772)
+use_collision = true
+size = Vector3(25.8724, 20.4754, 0.182263)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.2886, 10.3789, 16.7737)
+use_collision = true
+size = Vector3(31.8654, 20.4754, 0.182263)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0678585, 0, 0.997695, 0, 1, 0, -0.997695, 0, 0.0678585, 11.3535, 10.3789, 8.59801)
+use_collision = true
+size = Vector3(26.2139, 20.4754, 0.182263)
+material = SubResource("StandardMaterial3D_dpka8")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.95674, 8.99928, 13.738)
+use_collision = true
+size = Vector3(25.9508, 17.716, 0.182263)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, 4.49961, 10.7762, 26.5945)
+use_collision = true
+size = Vector3(22.2576, 20.9976, 0.182263)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, 7.17006, 9.96163, 0.755423)
+use_collision = true
+size = Vector3(1.72934, 26.6078, 0.182263)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, 9.35528, 14.071, 0.755424)
+use_collision = true
+size = Vector3(1.72934, 30.9782, 0.182263)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, 7.18424, 11.5187, 0.829588)
+use_collision = true
+size = Vector3(3.94649, 26.6361, 0.001)
+material = SubResource("StandardMaterial3D_64f42")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CSGBox3D14"]
+transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 3.34075e-22, 1, 0, 0, 0, 1, 2.70854, 9.53674e-07, -13.9159)
+stream = ExtResource("24_1onp2")
+attenuation_model = 1
+unit_size = 57.7
+autoplay = true
+max_distance = 20.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90262, 17.1479, -40.9408)
+stream = ExtResource("25_ceulh")
+autoplay = true
+max_distance = 45.0
+panning_strength = 2.49
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.6598, 3.45827, -102.982)
+use_collision = true
+size = Vector3(8.36515, 6.59463, 0.182263)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.15491, 3.31471, -98.816)
+use_collision = true
+size = Vector3(5.10549, 6.84224, 0.182263)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.15491, 3.43852, -105.835)
+use_collision = true
+size = Vector3(4.33964, 6.59463, 0.182263)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D22"]
+transform = Transform3D(-0.997206, 0, -0.0747002, 0, 1, 0, 0.0747002, 0, -0.997206, -3.44835, -0.864503, -1.06347)
+light_color = Color(1, 0.846, 0.72, 1)
+light_energy = 2.286
+light_indirect_energy = 1.914
+light_volumetric_fog_energy = 4.352
+shadow_enabled = true
+spot_range = 58.274
+spot_attenuation = 0.258816
+spot_angle = 77.57
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.15491, 5.00337, -102.284)
+use_collision = true
+size = Vector3(6.28582, 3.46493, 0.182263)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.15491, 0.733893, -102.284)
+use_collision = true
+size = Vector3(6.28582, 1.4287, 0.182263)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 13.9904, 3.01449, -107.234)
+use_collision = true
+size = Vector3(6.02804, 10.2075, 0.182263)
+material = SubResource("StandardMaterial3D_63ucl")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.1795, 3.43852, -96.2638)
+use_collision = true
+size = Vector3(0.001, 6.59463, 10.0257)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.11624e-09, -0.998827, 0.048414, -4.36601e-08, 0.048414, 0.998827, -1, 0, -4.37114e-08, 11.84, 2.04152, -96.2883)
+use_collision = true
+size = Vector3(0.001, 1.22377, 1.94832)
+material = SubResource("StandardMaterial3D_f2u5y")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.11624e-09, -0.998827, 0.048414, -4.36601e-08, 0.048414, 0.998827, -1, 0, -4.37114e-08, 14.1107, 2.2161, -96.3289)
+material_override = SubResource("StandardMaterial3D_ymo8s")
+use_collision = true
+size = Vector3(0.001, 0.949192, 1.26322)
+material = SubResource("StandardMaterial3D_dq82v")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 14.3749, 3.97726, -101.79)
+use_collision = true
+size = Vector3(0.335368, 11.9863, 10.8579)
+material = SubResource("StandardMaterial3D_3w0dl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CSGBox3D24"]
+transform = Transform3D(1, 0, -1.27055e-21, 0, 1, -1.06581e-14, 1.69407e-21, 1.42109e-14, 1, -0.266064, -0.0562439, 0.0280352)
+stream = ExtResource("24_1onp2")
+volume_db = -10.09
+autoplay = true
+max_distance = 83.8
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.380764, 1.92236, -102.283)
+stream = ExtResource("24_a451h")
+volume_db = -17.297
+max_db = -2.135
+autoplay = true
+max_distance = 110.71
+panning_strength = 1.44
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 14.2233, 0.111965, -103.402)
+use_collision = true
+size = Vector3(9.9458, 14.2712, 0.001)
+material = SubResource("StandardMaterial3D_sdul6")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.441867, 2.34068, -103.402)
+use_collision = true
+size = Vector3(7.47485, 14.2712, 4.45844)
+material = SubResource("StandardMaterial3D_x1o7l")

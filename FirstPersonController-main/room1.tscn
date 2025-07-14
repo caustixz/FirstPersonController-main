@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://dh6c0q3tsfa1o"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_fdr60"]
+[ext_resource type="Script" path="res://Scenes/Footstep_manager.gd" id="2_7pcj3"]
+[ext_resource type="AudioStream" uid="uid://4mrdlch33qm5" path="res://footstep2.mp3" id="3_lsgia"]
+[ext_resource type="AudioStream" uid="uid://dtmv7y06vny2y" path="res://footstep3.mp3" id="4_2nrgu"]
+[ext_resource type="AudioStream" uid="uid://bub5nrvjfgqx3" path="res://footstep4.mp3" id="5_wktok"]
+[ext_resource type="Script" path="res://Scenes/Node3D.gd" id="6_sr0qj"]
+[ext_resource type="AudioStream" uid="uid://cgh2dyd4043h1" path="res://sounds/flash/flashnew/flashlight_on_sound.mp3" id="7_scvqd"]
+[ext_resource type="AudioStream" uid="uid://gq75mdufvsx0" path="res://sounds/flash/flashnew/flashlight_off_sound.mp3" id="8_rh2kr"]
+[ext_resource type="Script" path="res://Scenes/SpotLight3D.gd" id="9_unpgb"]
+[ext_resource type="Texture2D" uid="uid://hde7l1exxtr8" path="res://grass2.png" id="10_41qhq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tabhr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h8rga"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5eb0"]
+albedo_texture = ExtResource("10_41qhq")
+uv1_scale = Vector3(46.04, 15.22, 0.75)
+uv2_scale = Vector3(1.185, 1.185, 1.185)
+texture_filter = 4
+
+[node name="Node3D2" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0541, 10.908, 21.8178)
+script = ExtResource("1_fdr60")
+
+[node name="Footstep_manager" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036779, 0)
+script = ExtResource("2_7pcj3")
+footstep_sounds = Array[AudioStreamMP3]([ExtResource("3_lsgia"), ExtResource("4_2nrgu"), ExtResource("5_wktok")])
+
+[node name="Node3D" type="Node3D" parent="Player"]
+script = ExtResource("6_sr0qj")
+flashlight_on_sound = ExtResource("7_scvqd")
+flashlight_off_sound = ExtResource("8_rh2kr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_tabhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_h8rga")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+fov = 28.4
+near = 0.009
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83176, -1.06963, -0.265659)
+light_color = Color(0.811444, 0.793519, 0.772874, 1)
+light_energy = 10.727
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.131
+light_size = 1.0
+light_specular = 0.646
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_normal_bias = 10.0
+shadow_transmittance_bias = 16.0
+spot_range = 34.128
+spot_attenuation = 0.435274
+spot_angle = 39.68
+spot_angle_attenuation = 11.7125
+script = ExtResource("9_unpgb")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/Head/Camera3D"]
+
+[node name="Marker3D" type="Marker3D" parent="Player/Head"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5878, 10.4559, 21.546)
+material_override = SubResource("StandardMaterial3D_t5eb0")
+use_collision = true
+size = Vector3(52.2363, 0.002, 67.1089)
