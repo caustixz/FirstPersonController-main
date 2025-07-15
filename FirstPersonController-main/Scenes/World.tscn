@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=68 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1d73w"]
 [ext_resource type="Texture2D" uid="uid://cuhjbtjwx061g" path="res://textures/8887540-seamless-detailed-texture-of-old-half-dry-grass-high-resolution-colour-horizontal-image.jpg" id="3_skhsk"]
@@ -49,6 +49,14 @@ uv1_offset = Vector3(0.08, 0, 0)
 uv2_scale = Vector3(15.57, 15.57, 15.57)
 texture_filter = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cf840"]
+albedo_texture = ExtResource("24_ctttb")
+uv1_scale = Vector3(3.905, 2.915, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8oi6"]
+albedo_texture = ExtResource("24_ctttb")
+uv1_scale = Vector3(3.895, 2.345, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shdnq"]
 albedo_texture = ExtResource("5_f4vep")
 
@@ -63,12 +71,11 @@ sky_material = SubResource("ProceduralSkyMaterial_5lq0h")
 
 [sub_resource type="Environment" id="Environment_g2h84"]
 background_mode = 2
-background_energy_multiplier = 0.85
+background_energy_multiplier = 0.0
 sky = SubResource("Sky_f6bkd")
-ambient_light_source = 1
-reflected_light_source = 1
-tonemap_mode = 3
-tonemap_exposure = 1.67
+ambient_light_color = Color(0.338161, 0.0748608, 0.0748657, 1)
+ambient_light_energy = 0.16
+reflected_light_source = 2
 tonemap_white = 1.68
 sdfgi_bounce_feedback = 0.27
 sdfgi_cascades = 8
@@ -80,7 +87,11 @@ glow_normalized = true
 glow_intensity = 1.47
 glow_blend_mode = 0
 fog_light_energy = 0.17
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.5237
+volumetric_fog_albedo = Color(1, 0.23, 0.23, 1)
+volumetric_fog_emission_energy = 205.8
+volumetric_fog_length = 0.01
 volumetric_fog_detail_spread = 4.75683
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yiyfu"]
@@ -94,7 +105,7 @@ material = SubResource("StandardMaterial3D_xscff")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krmnx"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xc2g5"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ahc0a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
 
@@ -217,6 +228,13 @@ material_override = SubResource("StandardMaterial3D_ii2ym")
 use_collision = true
 size = Vector3(200.469, 0.002, 322.886)
 
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.519, 0, -4.57675)
+material_override = SubResource("StandardMaterial3D_cf840")
+use_collision = true
+size = Vector3(200.469, 0.002, 322.886)
+material = SubResource("StandardMaterial3D_u8oi6")
+
 [node name="CSGBox3D7" type="CSGBox3D" parent="Map"]
 transform = Transform3D(-6.66757e-10, 0.999884, -0.0152536, 4.37063e-08, 0.0152536, 0.999884, 1, 0, -4.37114e-08, 11.2794, 0.698738, -37.6276)
 material_override = SubResource("StandardMaterial3D_shdnq")
@@ -297,7 +315,7 @@ mesh = SubResource("BoxMesh_efdq3")
 shape = SubResource("BoxShape3D_krmnx")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.999845, 0, -0.0175921, 0, 1, 0, 0.0175921, 0, -0.999845, 14.7046, 10.3566, 20.4319)
+transform = Transform3D(-0.999845, 0, -0.0175921, 0, 1, 0, 0.0175921, 0, -0.999845, -1.11835, 10.3566, 20.4319)
 script = ExtResource("1_1d73w")
 
 [node name="Footstep_manager" type="Node3D" parent="Player" node_paths=PackedStringArray("ground_pos")]
@@ -313,7 +331,7 @@ flashlight_off_sound = ExtResource("14_3okwd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_xc2g5")
+mesh = SubResource("ArrayMesh_ahc0a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -327,9 +345,9 @@ fov = 28.4
 near = 0.009
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Player/Head/Camera3D"]
-transform = Transform3D(0.999914, 0, -0.0130896, 0, 1, 0, 0.0130896, 0, 0.999914, 0.328926, -0.37314, -0.27457)
-light_color = Color(0.912487, 0.915877, 0.782145, 1)
-light_energy = 11.337
+transform = Transform3D(0.999914, 0, -0.0130896, 0, 1, 0, 0.0130896, 0, 0.999914, 0.328926, -0.37314, -0.274574)
+light_color = Color(0.975561, 0.888592, 0.792503, 1)
+light_energy = 1.737
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 3.722
 light_size = 1.0
@@ -338,10 +356,10 @@ light_bake_mode = 0
 shadow_bias = 10.0
 shadow_normal_bias = 10.0
 shadow_transmittance_bias = 16.0
-spot_range = 70.0
-spot_attenuation = 0.965931
-spot_angle = 39.68
-spot_angle_attenuation = 7.72733
+spot_range = 64.669
+spot_attenuation = 1.41421
+spot_angle = 41.39
+spot_angle_attenuation = 2.1435
 script = ExtResource("10_3qvnd")
 
 [node name="RayCast3D" type="RayCast3D" parent="Player/Head/Camera3D"]
@@ -570,19 +588,35 @@ size = Vector3(0, 0, 0.001)
 material = SubResource("StandardMaterial3D_utvm2")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.715, 10.3789, 13.7772)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.715, 10.3789, 5.82228)
 use_collision = true
-size = Vector3(25.8724, 20.4754, 0.182263)
+size = Vector3(9.96257, 20.4754, 0.182263)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.715, 10.3789, 23.4288)
+use_collision = true
+size = Vector3(9.96257, 20.4754, 0.182263)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.2886, 10.3789, 16.7737)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.2886, 10.3789, 9.26132)
 use_collision = true
-size = Vector3(31.8654, 20.4754, 0.182263)
+size = Vector3(10.9665, 20.4754, 0.182263)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.2886, 10.3789, 26.4211)
+use_collision = true
+size = Vector3(16.2137, 20.4754, 0.182263)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="."]
-transform = Transform3D(0.0678585, 0, 0.997695, 0, 1, 0, -0.997695, 0, 0.0678585, 11.3535, 10.3789, 8.59801)
+transform = Transform3D(0.0678585, 0, 0.997695, 0, 1, 0, -0.997695, 0, 0.0678585, 11.5592, 10.3789, 5.57325)
 use_collision = true
-size = Vector3(26.2139, 20.4754, 0.182263)
+size = Vector3(20.1504, 20.4754, 0.182263)
+material = SubResource("StandardMaterial3D_dpka8")
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0678585, 0, 0.997695, 0, 1, 0, -0.997695, 0, 0.0678585, 10.4092, 10.3789, 27.4021)
+use_collision = true
+size = Vector3(19.0996, 20.4754, 0.182263)
 material = SubResource("StandardMaterial3D_dpka8")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
@@ -700,6 +734,15 @@ autoplay = true
 max_distance = 83.8
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.380764, 1.92236, -102.283)
+stream = ExtResource("24_a451h")
+volume_db = -17.297
+max_db = -2.135
+autoplay = true
+max_distance = 110.71
+panning_strength = 1.44
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.380764, 1.92236, -102.283)
 stream = ExtResource("24_a451h")
 volume_db = -17.297
