@@ -24,7 +24,7 @@ const MOVEMENT_SMOOTHING = 10.0
 const AIR_MOVEMENT_SMOOTHING = 3.0
 
 # Subtle camera tilt when moving
-const MOVEMENT_TILT_AMOUNT = 2.0
+const MOVEMENT_TILT_AMOUNT = 1.4
 const TILT_SPEED = 4.0
 var current_tilt = 0.0
 
@@ -33,9 +33,9 @@ var movement_velocity = Vector3.ZERO
 const MOMENTUM_SMOOTHING = 10.0
 
 # Flashlight sway
-const SWAY_AMOUNT = 2
-const SWAY_SPEED = 1
-const MOUSE_SWAY = 0.6
+const SWAY_AMOUNT = 1
+const SWAY_SPEED = 3
+const MOUSE_SWAY = 0.3
 var flashlight_offset = Vector3.ZERO
 var mouse_delta = Vector2.ZERO
 var flashlight_base_transform: Transform3D
